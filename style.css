@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 :root{
-    --primary-color : red;
+    --primary-color : #a2de96;
     --secondary-color: #26643b;
 }
 body{
