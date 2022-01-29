@@ -30,6 +30,6 @@ javascript
 ![cashRegisterManager](https://user-images.githubusercontent.com/50478681/151415322-3cf48fcb-8225-400c-88ba-f8d672c74317.png)
 
 # Link
-[cashRegisterManager](digitalcashmanager.netlify.app/)
+[cashRegisterManager](https://digitalcashmanager.netlify.app/)
 
 Don't forget to leave a ⭐ if you found this useful.
