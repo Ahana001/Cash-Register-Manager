@@ -27,7 +27,7 @@ javascript
 # website Preview
 ![cash Register Manager](https://user-images.githubusercontent.com/50478681/151416566-121fb82c-867a-4b02-b7e5-8ca410080828.gif)
 
-![cashRegisterManager](https://user-images.githubusercontent.com/50478681/151415322-3cf48fcb-8225-400c-88ba-f8d672c74317.png)
+![cashRegisterManager](https://user-images.githubusercontent.com/50478681/174973869-92bb009e-cbab-4b73-8057-d27400288a4e.png)
 
 # Link
 [cashRegisterManager](https://digitalcashmanager.netlify.app/)
