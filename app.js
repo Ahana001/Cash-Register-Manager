@@ -1,35 +1,57 @@
-var billAmount = document.querySelector("#bill-amount");
-var cashGiven = document.querySelector("#cash-given");
-var message = document.querySelector("#message");
-var checkButton = document.querySelector("#checkButton");
+const checkButton = document.querySelector('#checkButton');
+const message = document.querySelector('#message');
+const container = document.querySelector('.container');
+const noOfNotes = [2000, 500, 100, 20, 10, 5, 1];
+const nextButton = document.querySelector('#next');
 var notes = document.querySelectorAll(".note");
-var NoteArray = [2000,500,100,20,10,5,1];
-
-function calculateNoOfteNotes(value){
-    for(let i=0; i<NoteArray.length; i++)
-    {
-        var NoOfNote = Math.trunc(value/NoteArray[i]);
-        notes[i].innerText = NoOfNote;
-        value = value % NoteArray[i];
-    }
+var cashGiven = 0;
+var billAmount = 0;
+function setMessage(msg) {
+    message.innerText = msg;
 }
-
-function validateBillAmount(bill,GivenAmount) {
-    message.style.display = "none";
-    if (bill <= 0) {
-        message.style.display = "block";
-        message.innerText = "Bill Amount must be greater than 0";
-    } else {
-        if (parseInt(GivenAmount) < parseInt(bill)) {
-            message.style.display = "block";
-            message.innerText = "cash given must be greater than bill amount";
-        } else {
-            var ReturnAmount = GivenAmount-bill;
-            calculateNoOfteNotes(ReturnAmount);
+function hideMessage() {
+    message.innerText = "";
+}
+function returnAmount(amountToReturn) {
+    var amount = amountToReturn;
+    for (let i = 0; i < noOfNotes.length; i++) {
+        var NoOfNote = Math.trunc(amount / noOfNotes[i]);
+        notes[i].innerText = NoOfNote;
+        amount = amount % noOfNotes[i];
+        if (amount == 0) { //decrese no of iteration
+            break
         }
     }
 }
+function checkBillValidation() {
+    hideMessage();
+    if (billAmount < 0) {
+        setMessage("Invalid bill amount. must be greater than 0");
+    } else {
+        container.style.display = "block";
 
+    }
+}
+function checkCashValidation() {
+    const inputCashGiven = document.querySelector('#cash-given');
+    cashGiven = Number(inputCashGiven.value);
+    hideMessage();
+    if (billAmount > cashGiven) {
+        setMessage("amount must be lesser than cash");
+        return false;
+    } else {
+        return true;
+    }
+}
+nextButton.addEventListener('click', () => {
+    const inputBill = document.querySelector("#bill-amount");
+    billAmount = Number(inputBill.value);
+    checkBillValidation();
+})
 checkButton.addEventListener('click', () => {
-    validateBillAmount(billAmount.value,cashGiven.value);
-});
+    if (checkCashValidation()) {
+
+        var amountToReturn = cashGiven - billAmount;
+        returnAmount(amountToReturn);
+    }
+})

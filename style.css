@@ -28,6 +28,9 @@ body{
 h2{
     margin: 1vh;
 }
+.container{
+    display: none;
+}
 p{
     margin: 1.5vh;
 }
@@ -41,6 +44,15 @@ input{
     border: 2px solid var(--secondary-color);
 }
 #checkButton{
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 2px solid var(--secondary-color);
+    margin: 10px 0px;
+}
+#next{
+    margin: 10px 0px;
     font-size: 1.2rem;
     color: var(--secondary-color);
     padding: 5px 15px;
