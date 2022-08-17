@@ -1,4 +1,6 @@
 const checkButton = document.querySelector('#checkButton');
+const inputCashGiven = document.querySelector('#cash-given');
+const inputBill = document.querySelector("#bill-amount");
 const message = document.querySelector('#message');
 const container = document.querySelector('.container');
 const noOfNotes = [2000, 500, 100, 20, 10, 5, 1];
@@ -25,28 +27,28 @@ function returnAmount(amountToReturn) {
 }
 function checkBillValidation() {
     hideMessage();
-    if (billAmount < 0 || !billAmount) {
-        setMessage("Invalid bill amount. must be greater than 0");
+    if (billAmount < 0 || !billAmount && billAmount !== 0) {
+        setMessage("Invalid bill amount");
+    } else if (billAmount == 0) {
+        setMessage("No Need for calculation.");
     } else {
         container.style.display = "block";
     }
 }
 function checkCashValidation() {
-    const inputCashGiven = document.querySelector('#cash-given');
     cashGiven = Number(inputCashGiven.value);
     hideMessage();
     if (cashGiven == 0) {
         setMessage('do you wanna wash plates?');
         return false;
     } else if (billAmount > cashGiven) {
-        setMessage("amount must be lesser than cash");
+        setMessage("cash given should be greater than bill amount");
         return false;
     } else {
         return true;
     }
 }
 nextButton.addEventListener('click', () => {
-    const inputBill = document.querySelector("#bill-amount");
     billAmount = Number(inputBill.value);
     checkBillValidation();
 })
